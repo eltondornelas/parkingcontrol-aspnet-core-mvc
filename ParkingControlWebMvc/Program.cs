@@ -17,6 +17,8 @@ namespace ParkingControlWebMvc
             CreateWebHostBuilder(args).Build().Run();
         }
 
+        //ctrl+shift+b para compilar apenas na primeira vez que o projeto é criado.
+
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
