@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ParkingControlWebMvc.Models;
 
+
 namespace ParkingControlWebMvc.Controllers
 {
     public class HomeController : Controller
@@ -17,7 +18,8 @@ namespace ParkingControlWebMvc.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Parking Control Web MVC App from Programming Course";
+            ViewData["Group"] = "Elton Dornelas, Thiago Albertins, Priscilla";
 
             return View();
         }
