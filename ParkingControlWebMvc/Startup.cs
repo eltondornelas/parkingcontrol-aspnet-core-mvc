@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using ParkingControlWebMvc.Models;
 
 namespace ParkingControlWebMvc
 {
@@ -33,6 +35,18 @@ namespace ParkingControlWebMvc
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            //o tipo abaixo Parking... é o tipo que está na pasta Data.
+            /*
+            services.AddDbContext<ParkingControlWebMvcContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ParkingControlWebMvcContext")));
+                    */
+            services.AddDbContext<ParkingControlWebMvcContext>(options =>
+                   options.UseMySql(Configuration.GetConnectionString("ParkingControlWebMvcContext"), builder => 
+                        builder.MigrationsAssembly("ParkingControlWebMvc")));
+            
+            //primeiro tipo é o nome que está em "Data", segundo é o nome do projeto!
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
